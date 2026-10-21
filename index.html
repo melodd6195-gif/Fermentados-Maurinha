@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fermentados da Maurinha – Kombucha e Kefir artesanais em Londrina</title>
+<meta name="description" content="Bebidas vivas, naturais e artesanais: kombucha e kefir. Pedidos para Londrina e região pelo WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#topo" aria-label="Fermentados da Maurinha, início">
+      <svg width="34" height="34" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="var(--bg)" stroke="var(--brand)" stroke-width="2"/><rect x="12" y="10" width="16" height="4" rx="1.5" fill="#b7791f"/><rect x="11" y="14" width="18" height="16" rx="5" fill="var(--brand)"/><rect x="15" y="19" width="10" height="3" rx="1.5" fill="#fff" opacity=".6"/></svg>
+      <span>Fermentados da Maurinha<small>Kombucha &amp; Kefir artesanais</small></span>
+    </a>
+    <div class="top-actions">
+      <a class="btn small ghost" id="admin-link" href="admin.html" hidden>Painel</a>
+      <button class="btn small ghost" id="auth-btn" type="button">Entrar</button>
+      <a class="btn small hide-sm" data-wa href="#">WhatsApp</a>
+      <button class="cartbtn" id="cart-top" type="button" aria-label="Abrir carrinho">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+        <span class="badge" id="badge" hidden>0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="topo">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Bebidas Vivas:<br>Kombucha &amp; Kefir</h1>
+        <p class="lead">Natural, artesanal e cheia de vida!</p>
+        <p class="pill">8 anos de experiência</p>
+        <div class="cta-row">
+          <a class="btn" href="#cardapio">Escolher meus sabores</a>
+          <a class="btn ghost" data-wa href="#">Falar no WhatsApp</a>
+        </div>
+      </div>
+      <div class="shelf" id="shelf" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <section id="cardapio" class="band">
+    <div class="wrap">
+      <h2>Escolha e peça pelo WhatsApp</h2>
+      <p class="sub">Toque na garrafinha com o ícone de câmera para ver a foto do sabor e no + para montar seu pedido. Ao final, ele vai pronto para a conversa no WhatsApp, onde confirmamos valores e entrega.</p>
+      <div class="notice" id="notice" role="status" hidden>No momento não estamos recebendo pedidos pelo site. Fale com a gente pelo WhatsApp.</div>
+      <div class="groups" id="groups"></div>
+    </div>
+  </section>
+
+  <section id="como">
+    <div class="wrap">
+      <h2>Como pedir</h2>
+      <p class="sub">Simples, direto no WhatsApp.</p>
+      <ol class="steps">
+        <li><b>Monte o pedido</b><span>Escolha os sabores aqui no site, ou mande a lista direto no WhatsApp.</span></li>
+        <li><b>Confirme pelo WhatsApp</b><span>Respondemos com os valores, o dia e o horário da entrega.</span></li>
+        <li><b>Receba em casa</b><span>Entregas em Londrina e região, em embalagem própria para presente ou para o dia a dia.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="sobre" class="band">
+    <div class="wrap about">
+      <p class="quote">Mais disposição, melhor digestão e equilíbrio intestinal começam aqui.</p>
+      <div>
+        <h2>Fermentação de verdade</h2>
+        <p>Fazemos kombucha e kefir há 8 anos, em pequenos lotes, de forma artesanal. São bebidas vivas: naturais, sem pressa e com o sabor das frutas escolhidas a dedo.</p>
+        <p>Cada garrafa é preparada em Londrina e entregue para você e sua família.</p>
+        <a class="btn" data-wa href="#">Quero experimentar</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><strong>Kombucha &amp; Kefir artesanais</strong><br>Londrina, PR e região</div>
+    <div>
+      <a href="https://instagram.com/fermentadosdamaurinha" target="_blank" rel="noopener">@fermentadosdamaurinha</a><br>
+      <a data-wa href="#">WhatsApp (43) 99144-2024</a>
+    </div>
+  </div>
+</footer>
+
+<div class="bar" id="bar" role="region" aria-label="Seu pedido">
+  <div class="wrap">
+    <div><strong id="count">0 itens</strong> <span id="bar-total"></span></div>
+    <button class="btn small" id="open-cart" type="button">Ver carrinho</button>
+  </div>
+</div>
+
+<div class="overlay" id="overlay" hidden></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title" aria-hidden="true">
+  <div class="drawer-head">
+    <h2 id="drawer-title">Seu pedido</h2>
+    <button class="x" id="close-cart" type="button" aria-label="Fechar carrinho">×</button>
+  </div>
+  <div class="drawer-body" id="drawer-body">
+    <div class="success" id="success">
+      <div class="tick" aria-hidden="true">✓</div>
+      <h3 id="success-num"></h3>
+      <p>Pedido registrado! Falta só um passo: envie a mensagem no WhatsApp para confirmarmos valores e horário.</p>
+      <a class="btn full" id="success-wa" href="#" target="_blank" rel="noopener">Enviar no WhatsApp</a>
+      <button type="button" class="btn ghost full" id="success-new">Voltar ao cardápio</button>
+    </div>
+    <div id="cart-items"></div>
+    <button class="link2" id="clear" type="button" hidden>Esvaziar carrinho</button>
+    <div class="totals" id="totals"></div>
+
+    <form id="checkout" novalidate>
+      <fieldset class="seg">
+        <legend>Como quer receber?</legend>
+        <label><input type="radio" name="mode" value="Entrega" checked> Entrega</label>
+      </fieldset>
+      <p class="note" id="login-hint">Já tem conta? <button type="button" class="linkbtn" data-open-auth>Entre</button> para usar seus dados salvos.</p>
+      <label class="f">Seu nome<input name="nome" maxlength="120" autocomplete="name" required></label>
+      <label class="f">Telefone / WhatsApp (opcional)<input name="fone" maxlength="20" type="tel" autocomplete="tel" inputmode="tel" placeholder="(43) 99999-9999"></label>
+      <div id="addr">
+        <label class="f">Rua e número<input name="rua" maxlength="160" autocomplete="street-address"></label>
+        <div class="two">
+          <label class="f">Bairro<input name="bairro" maxlength="80"></label>
+          <label class="f">Cidade<select name="cidade" autocomplete="address-level2"></select></label>
+        </div>
+        <label class="f">Complemento (opcional)<input name="comp" maxlength="120"></label>
+        <label class="chk" id="save-addr" hidden><input type="checkbox" name="salvar" checked> Salvar este endereço na minha conta</label>
+      </div>
+      <label class="f">Forma de pagamento<select name="pag" id="pag"></select></label>
+      <label class="f">Observações (opcional)<textarea name="obs" maxlength="500" rows="2" placeholder="Ex.: horário preferido, ponto de referência"></textarea></label>
+      <p class="err" id="err" role="alert"></p>
+      <button class="btn full" type="submit" id="submit">Enviar pedido no WhatsApp</button>
+      <p class="note">Você será levado ao WhatsApp para confirmar valores e horário. Nada é cobrado pelo site.</p>
+    </form>
+  </div>
+</aside>
+
+<div class="modal" id="auth" role="dialog" aria-modal="true" aria-labelledby="auth-title" hidden>
+  <div class="modal-card">
+    <div class="modal-head"><h2 id="auth-title">Entrar</h2><button class="x mx" data-close type="button" aria-label="Fechar">×</button></div>
+    <div class="tabs" role="tablist">
+      <button type="button" role="tab" data-tab="login" aria-selected="true">Entrar</button>
+      <button type="button" role="tab" data-tab="signup" aria-selected="false">Criar conta</button>
+    </div>
+    <form id="login-form" class="stack" novalidate>
+      <label class="f">E-mail<input name="email" type="email" autocomplete="email" inputmode="email"></label>
+      <label class="f">Senha<input name="password" type="password" autocomplete="current-password"></label>
+      <button class="btn full" type="submit">Entrar</button>
+      <button type="button" class="linkbtn" id="forgot">Esqueci a senha</button>
+    </form>
+    <form id="signup-form" class="stack" hidden novalidate>
+      <label class="f">Seu nome<input name="nome" autocomplete="name" maxlength="120"></label>
+      <label class="f">E-mail<input name="email" type="email" autocomplete="email" inputmode="email"></label>
+      <label class="f">Senha (mínimo 8 caracteres)<input name="password" type="password" autocomplete="new-password" minlength="8"></label>
+      <button class="btn full" type="submit">Criar minha conta</button>
+      <p class="note">Com a conta você salva seu endereço e acompanha seus pedidos. Mas não é obrigatório para pedir.</p>
+    </form>
+    <form id="reset-form" class="stack" hidden novalidate>
+      <label class="f">Nova senha (mínimo 8 caracteres)<input name="password" type="password" autocomplete="new-password"></label>
+      <button class="btn full" type="submit">Salvar nova senha</button>
+    </form>
+    <p class="err" id="auth-err" role="alert"></p>
+    <p class="note okmsg" id="auth-note" role="status"></p>
+  </div>
+</div>
+
+<div class="modal" id="acct" role="dialog" aria-modal="true" aria-labelledby="acct-title" hidden>
+  <div class="modal-card wide">
+    <div class="modal-head"><h2 id="acct-title">Minha conta</h2><button class="x mx" data-close type="button" aria-label="Fechar">×</button></div>
+    <div class="tabs" role="tablist">
+      <button type="button" role="tab" data-acct-tab="orders" aria-selected="true">Meus pedidos</button>
+      <button type="button" role="tab" data-acct-tab="profile" aria-selected="false">Dados e endereços</button>
+    </div>
+    <div id="acct-body"></div>
+  </div>
+</div>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-labelledby="lb-name" hidden>
+  <div class="lb-card">
+    <div class="lb-media">
+      <img id="lb-img" alt="" decoding="async">
+      <button class="lb-nav prev" id="lb-prev" type="button" aria-label="Foto anterior">‹</button>
+      <button class="lb-nav next" id="lb-next" type="button" aria-label="Próxima foto">›</button>
+      <button class="lb-x" id="lb-close" type="button" aria-label="Fechar foto">×</button>
+    </div>
+    <div class="lb-info">
+      <div>
+        <div class="lb-name" id="lb-name"></div>
+        <div class="lb-desc" id="lb-desc"></div>
+      </div>
+      <div class="stepper" role="group" aria-label="Quantidade">
+        <button type="button" id="lb-minus" data-d="-1">−</button>
+        <output id="lb-q">0</output>
+        <button type="button" class="plus" id="lb-plus" data-d="1">+</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.110.1/dist/umd/supabase.js"></script>
+<script>window.supabase||document.write('<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"><\/script>')</script>
+<script src="core.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
